@@ -1,14 +1,9 @@
-// Инициализация GSAP
+// Initialize GSAP
 gsap.registerPlugin(ScrollTrigger);
 
-console.log('Script loaded successfully!');
-
-// Проверка загрузки GSAP
-console.log('GSAP version:', gsap.version);
-
-// Анимация при загрузке
+// Animation on page load
 window.addEventListener('load', () => {
-    // Анимация заголовка
+    // Hero title animation
     gsap.from('.hero h1', {
         duration: 1.5,
         y: 100,
@@ -17,7 +12,7 @@ window.addEventListener('load', () => {
         delay: 0.5
     });
 
-    // Анимация ASCII арта
+    // ASCII art animation
     gsap.from('.ascii-art', {
         duration: 2,
         scale: 0.8,
@@ -26,7 +21,7 @@ window.addEventListener('load', () => {
         delay: 1
     });
 
-    // Анимация навигации
+    // Navigation animation
     gsap.from('nav', {
         duration: 1,
         y: -50,
@@ -35,9 +30,9 @@ window.addEventListener('load', () => {
     });
 });
 
-// Анимации при скролле
+// Scroll animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Анимация секций при скролле
+    // Section animations on scroll
     gsap.utils.toArray('section').forEach((section) => {
         gsap.from(section, {
             scrollTrigger: {
@@ -53,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Параллакс эффект для скриншотов
+    // Parallax effect for screenshots
     gsap.utils.toArray('.screenshots img').forEach(img => {
         gsap.to(img, {
             scrollTrigger: {
@@ -67,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Анимация кнопок социальных сетей
+    // Social media buttons animation
     gsap.utils.toArray('.social-item').forEach((item, i) => {
         gsap.from(item, {
             scrollTrigger: {
@@ -82,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Анимация при наведении на кнопку отправки
+// Submit button hover animation
 const submitBtn = document.querySelector('.submit-btn');
 if (submitBtn) {
     submitBtn.addEventListener('mouseenter', () => {
@@ -102,7 +97,7 @@ if (submitBtn) {
     });
 }
 
-// Обработка отправки формы
+// Form submission handler
 const form = document.getElementById('contactForm');
 if (form) {
     form.addEventListener('submit', async (e) => {
@@ -125,7 +120,7 @@ if (form) {
                 submitButton.textContent = 'Отправлено!';
                 form.reset();
 
-                // Показываем и анимируем кота
+                // Show and animate the cat
                 const thankYouCat = document.querySelector('.thank-you-cat');
                 const catAscii = document.querySelector('.cat-ascii');
                 
@@ -192,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Плавная прокрутка для навигации
+    // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
